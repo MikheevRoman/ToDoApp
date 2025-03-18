@@ -2,20 +2,23 @@ import entity.Task;
 import entity.TaskStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import repository.TaskRepositoryImpl;
+import repository.InMemoryTaskRepository;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TaskRepositoryImplTest {
+class InMemoryTaskRepositoryTest {
 
-    private TaskRepositoryImpl repository;
+    private InMemoryTaskRepository repository;
 
     @BeforeEach
     void setUp() {
-        repository = new TaskRepositoryImpl();
+        repository = new InMemoryTaskRepository();
+        repository.create(new Task("task 1", "desc 1", LocalDate.now(), TaskStatus.TODO));
+        repository.create(new Task("task 2", "desc 2", LocalDate.now(), TaskStatus.IN_PROGRESS));
+        repository.create(new Task("task 3", "desc 3", LocalDate.now(), TaskStatus.DONE));
     }
 
     @Test

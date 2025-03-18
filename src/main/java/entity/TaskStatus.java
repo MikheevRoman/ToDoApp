@@ -1,25 +1,11 @@
 package entity;
 
-import lombok.Getter;
-
-@Getter
 public enum TaskStatus {
-    TODO(0),
 
-    IN_PROGRESS(1),
+    TODO,
 
-    DONE(2);
+    IN_PROGRESS,
 
-    private final int code;
+    DONE
 
-    TaskStatus(int code) {
-        this.code = code;
-    }
-
-    public static TaskStatus parseStatus(String string) {
-        for (var t : TaskStatus.values()) {
-            if (string.equals(t.name().toLowerCase())) return t;
-        }
-        return null;
-    }
 }
