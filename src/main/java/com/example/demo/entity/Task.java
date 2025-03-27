@@ -15,19 +15,19 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     String name;
 
     @Column(name = "description")
     String description;
 
-    @Column(name = "deadline")
+    @Column(name = "deadline", nullable = false)
     LocalDate deadline;
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     TaskStatus status;
 
